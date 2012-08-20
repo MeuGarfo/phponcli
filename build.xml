@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="PHPonCLI">
+
+	<property name="project.version" value="1.0" />
+	<property name="project.status" value="stable, public-release" />
+	<property name="project.url" value="http://blog.evolya.fr/labs/en/phponcli/" />
+
+	<property name="project.description"><![CDATA[
+
+	
+	]]></property>
+
+	<property name="src.dir" value="${project.dir}/src/" />
+	<property name="demo.dir" value="${project.dir}/demo/" />
+
+	<target name="build" description="Compile the current version">
+		<mkdir dir="${build.dir}" />
+		<echo>Building sources...</echo>
+		<compile destfile="${build.dir}/${build.file}" includePath="${src.dir};${project.dir}" verbose="true" pack="true">
+			<includefile file="${src.dir}/formbuilder.php" followincludes="true" />
+			<prependtext><![CDATA[<?php
+/*
+$Id: ${build.file},v ${project.version} ${date-Y}/${date-m}/${date-d} ${date-H}:${date-i}:${date-s} evolya Exp $
+
+FormBuilder - Web forms generator
+
+Copyright (c) ${date-Y} www.evolya.fr
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+If you have any questions or comments, please email:
+
+contact@evolya.fr
+http://www.evolya.fr/
+ */
+?>]]></prependtext>
+		</compile>
+		<echo>Done</echo>
+	</target>
+
+</project>
