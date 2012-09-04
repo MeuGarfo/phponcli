@@ -44,6 +44,17 @@ class MyCLI extends PHPonCLI {
 	}
 
 	/**
+	 * Display the current version of PHPonCLI
+	 */
+	public function handle_version() {
+		if (!$this->check()) {
+			return false;
+		}
+		$this->output("PHPonCLI v" . PHPonCLI::VERSION);
+		return true;
+	}
+
+	/**
 	 * Display current user name.
 	 */
 	public function handle_whois() {
